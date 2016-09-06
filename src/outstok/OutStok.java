@@ -6,6 +6,7 @@
 package outstok;
 
 import Formularios.Principal;
+import Utilitarios.conectaBanco;
 
 /**
  *
@@ -20,8 +21,9 @@ public class OutStok {
         Principal frm = new Principal();
         frm.setVisible(true);
         
+   
+        }
         
         // TODO code application logic here
     }
     
-}

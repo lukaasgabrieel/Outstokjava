@@ -5,17 +5,23 @@
  */
 package Formularios;
 
+import Utilitarios.conectaBanco;
+
 /**
  *
  * @author lukaa
  */
 public class Principal extends javax.swing.JFrame {
 
+    conectaBanco conecta = new conectaBanco();
+        
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
+        
+        conecta.conexao();
     }
 
     /**
@@ -28,78 +34,120 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        Cadastro = new javax.swing.JMenu();
+        Estado = new javax.swing.JMenuItem();
         Cidades = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        Bairro = new javax.swing.JMenuItem();
+        Telefone = new javax.swing.JMenuItem();
+        Clientes = new javax.swing.JMenuItem();
+        Fornecedor = new javax.swing.JMenuItem();
+        Produtos = new javax.swing.JMenuItem();
+        Compras = new javax.swing.JMenu();
+        Vendas = new javax.swing.JMenu();
+        Relatorios = new javax.swing.JMenu();
+        Sair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("OutStok - Sistema de automação de lojas");
+        setBackground(new java.awt.Color(0, 0, 0));
+        setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        setForeground(java.awt.Color.white);
+        setIconImages(null);
         addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
                 formMouseWheelMoved(evt);
             }
         });
 
-        jMenu1.setText("Cadastro");
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jMenuBar1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
 
+        Cadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/browser.png"))); // NOI18N
+        Cadastro.setText("Cadastro");
+        Cadastro.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+
+        Estado.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        Estado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/monuments.png"))); // NOI18N
+        Estado.setText("Estado");
+        Estado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EstadoMouseClicked(evt);
+            }
+        });
+        Estado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EstadoActionPerformed(evt);
+            }
+        });
+        Cadastro.add(Estado);
+
+        Cidades.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        Cidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/home.png"))); // NOI18N
         Cidades.setText("Cidade");
         Cidades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CidadesActionPerformed(evt);
             }
         });
-        jMenu1.add(Cidades);
+        Cadastro.add(Cidades);
 
-        jMenuItem1.setText("Estado");
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Bairro");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        Bairro.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        Bairro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/holidays.png"))); // NOI18N
+        Bairro.setText("Bairro");
+        Bairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                BairroActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        Cadastro.add(Bairro);
 
-        jMenuItem3.setText("Telefone");
-        jMenu1.add(jMenuItem3);
+        Telefone.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        Telefone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/smartphone.png"))); // NOI18N
+        Telefone.setText("Telefone");
+        Cadastro.add(Telefone);
 
-        jMenuItem4.setText("Clientes");
-        jMenu1.add(jMenuItem4);
+        Clientes.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/team.png"))); // NOI18N
+        Clientes.setText("Clientes");
+        Cadastro.add(Clientes);
 
-        jMenuItem5.setText("Fornecedor");
-        jMenu1.add(jMenuItem5);
+        Fornecedor.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        Fornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/technology.png"))); // NOI18N
+        Fornecedor.setText("Fornecedor");
+        Cadastro.add(Fornecedor);
 
-        jMenuItem6.setText("Produtos");
-        jMenu1.add(jMenuItem6);
+        Produtos.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        Produtos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/barcode.png"))); // NOI18N
+        Produtos.setText("Produtos");
+        Cadastro.add(Produtos);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(Cadastro);
 
-        jMenu4.setText("Compras");
-        jMenuBar1.add(jMenu4);
+        Compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cart.png"))); // NOI18N
+        Compras.setText("Compras");
+        Compras.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jMenuBar1.add(Compras);
 
-        jMenu2.setText("Vendas");
-        jMenuBar1.add(jMenu2);
+        Vendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/sales.png"))); // NOI18N
+        Vendas.setText("Vendas");
+        Vendas.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jMenuBar1.add(Vendas);
 
-        jMenu3.setText("Relátorios");
-        jMenuBar1.add(jMenu3);
+        Relatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/news.png"))); // NOI18N
+        Relatorios.setText("Relátorios");
+        Relatorios.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jMenuBar1.add(Relatorios);
 
-        jMenu5.setText("Sair");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+        Sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
+        Sair.setText("Sair");
+        Sair.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        Sair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
+                SairMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(Sair);
 
         setJMenuBar(jMenuBar1);
 
@@ -107,11 +155,11 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 548, Short.MAX_VALUE)
+            .addGap(0, 784, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGap(0, 525, Short.MAX_VALUE)
         );
 
         setBounds(0, 0, 800, 600);
@@ -125,14 +173,24 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CidadesActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void BairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BairroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_BairroActionPerformed
 
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+    private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jMenu5MouseClicked
+    }//GEN-LAST:event_SairMouseClicked
+
+    private void EstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadoActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_EstadoActionPerformed
+
+    private void EstadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstadoMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_EstadoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -170,18 +228,18 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Bairro;
+    private javax.swing.JMenu Cadastro;
     private javax.swing.JMenuItem Cidades;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenuItem Clientes;
+    private javax.swing.JMenu Compras;
+    private javax.swing.JMenuItem Estado;
+    private javax.swing.JMenuItem Fornecedor;
+    private javax.swing.JMenuItem Produtos;
+    private javax.swing.JMenu Relatorios;
+    private javax.swing.JMenu Sair;
+    private javax.swing.JMenuItem Telefone;
+    private javax.swing.JMenu Vendas;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
 }
