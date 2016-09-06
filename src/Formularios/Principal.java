@@ -36,6 +36,11 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("OutStok - Sistema de automação de lojas");
+        addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                formMouseWheelMoved(evt);
+            }
+        });
 
         jMenu1.setText("Cadastro");
         jMenuBar1.add(jMenu1);
@@ -65,8 +70,12 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 420, Short.MAX_VALUE)
         );
 
-        pack();
+        setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_formMouseWheelMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formMouseWheelMoved
 
     /**
      * @param args the command line arguments
