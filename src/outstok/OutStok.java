@@ -5,6 +5,8 @@
  */
 package outstok;
 
+import Formularios.Principal;
+
 /**
  *
  * @author lukaa
@@ -15,6 +17,10 @@ public class OutStok {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Principal frm = new Principal();
+        frm.setVisible(true);
+        
+        
         // TODO code application logic here
     }
     
