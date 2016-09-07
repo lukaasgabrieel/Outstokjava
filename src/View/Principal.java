@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Formularios;
+package View;
 
-import Utilitarios.conectaBanco;
+import outstok.conectaBanco;
 
 /**
  *
@@ -14,13 +14,14 @@ import Utilitarios.conectaBanco;
 public class Principal extends javax.swing.JFrame {
 
     conectaBanco conecta = new conectaBanco();
-        
+
     /**
      * Creates new form Principal
      */
     public Principal() {
+        setExtendedState(Principal.MAXIMIZED_BOTH); 
         initComponents();
-        
+
         conecta.conexao();
     }
 
@@ -33,12 +34,11 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Cadastro = new javax.swing.JMenu();
         Estado = new javax.swing.JMenuItem();
         Cidades = new javax.swing.JMenuItem();
-        Bairro = new javax.swing.JMenuItem();
-        Telefone = new javax.swing.JMenuItem();
         Clientes = new javax.swing.JMenuItem();
         Fornecedor = new javax.swing.JMenuItem();
         Produtos = new javax.swing.JMenuItem();
@@ -50,6 +50,7 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("OutStok - Sistema de automação de lojas");
         setBackground(new java.awt.Color(0, 0, 0));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         setForeground(java.awt.Color.white);
         setIconImages(null);
@@ -59,16 +60,29 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 993, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 758, Short.MAX_VALUE)
+        );
+
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenuBar1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
 
-        Cadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/browser.png"))); // NOI18N
+        Cadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/64/browser.png"))); // NOI18N
         Cadastro.setText("Cadastro");
         Cadastro.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
 
         Estado.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        Estado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/monuments.png"))); // NOI18N
+        Estado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/64/monuments.png"))); // NOI18N
         Estado.setText("Estado");
         Estado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -83,7 +97,7 @@ public class Principal extends javax.swing.JFrame {
         Cadastro.add(Estado);
 
         Cidades.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        Cidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/home.png"))); // NOI18N
+        Cidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/64/home.png"))); // NOI18N
         Cidades.setText("Cidade");
         Cidades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,54 +106,54 @@ public class Principal extends javax.swing.JFrame {
         });
         Cadastro.add(Cidades);
 
-        Bairro.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        Bairro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/holidays.png"))); // NOI18N
-        Bairro.setText("Bairro");
-        Bairro.addActionListener(new java.awt.event.ActionListener() {
+        Clientes.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/64/team.png"))); // NOI18N
+        Clientes.setText("Clientes");
+        Clientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BairroActionPerformed(evt);
+                ClientesActionPerformed(evt);
             }
         });
-        Cadastro.add(Bairro);
-
-        Telefone.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        Telefone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/smartphone.png"))); // NOI18N
-        Telefone.setText("Telefone");
-        Cadastro.add(Telefone);
-
-        Clientes.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/team.png"))); // NOI18N
-        Clientes.setText("Clientes");
         Cadastro.add(Clientes);
 
         Fornecedor.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        Fornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/technology.png"))); // NOI18N
+        Fornecedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/64/technology.png"))); // NOI18N
         Fornecedor.setText("Fornecedor");
+        Fornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FornecedorActionPerformed(evt);
+            }
+        });
         Cadastro.add(Fornecedor);
 
         Produtos.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        Produtos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/barcode.png"))); // NOI18N
+        Produtos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/64/barcode.png"))); // NOI18N
         Produtos.setText("Produtos");
+        Produtos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProdutosActionPerformed(evt);
+            }
+        });
         Cadastro.add(Produtos);
 
         jMenuBar1.add(Cadastro);
 
-        Compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cart.png"))); // NOI18N
+        Compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/64/cart.png"))); // NOI18N
         Compras.setText("Compras");
         Compras.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jMenuBar1.add(Compras);
 
-        Vendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/sales.png"))); // NOI18N
+        Vendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/64/sales.png"))); // NOI18N
         Vendas.setText("Vendas");
         Vendas.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jMenuBar1.add(Vendas);
 
-        Relatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/news.png"))); // NOI18N
+        Relatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/64/news.png"))); // NOI18N
         Relatorios.setText("Relátorios");
         Relatorios.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jMenuBar1.add(Relatorios);
 
-        Sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/exit.png"))); // NOI18N
+        Sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/64/exit.png"))); // NOI18N
         Sair.setText("Sair");
         Sair.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         Sair.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,14 +169,14 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 784, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setBounds(0, 0, 800, 600);
+        setBounds(0, 0, 1013, 837);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_formMouseWheelMoved
@@ -171,11 +185,10 @@ public class Principal extends javax.swing.JFrame {
 
     private void CidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CidadesActionPerformed
         // TODO add your handling code here:
+        Cidade e = new Cidade();
+        jPanel1.add(e);
+         e.setVisible(true);
     }//GEN-LAST:event_CidadesActionPerformed
-
-    private void BairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BairroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BairroActionPerformed
 
     private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
         // TODO add your handling code here:
@@ -184,7 +197,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void EstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadoActionPerformed
         // TODO add your handling code here:
-
+        Estado e = new Estado();
+        jPanel1.add(e);
+        e.setVisible(true);
     }//GEN-LAST:event_EstadoActionPerformed
 
     private void EstadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstadoMouseClicked
@@ -192,43 +207,32 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_EstadoMouseClicked
 
+    private void ClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientesActionPerformed
+        // TODO add your handling code here:
+        Cliente e = new Cliente();
+        jPanel1.add(e);
+        e.setVisible(true);
+    }//GEN-LAST:event_ClientesActionPerformed
+
+    private void FornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FornecedorActionPerformed
+        // TODO add your handling code here:
+        Fornecedor f = new Fornecedor();
+        jPanel1.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_FornecedorActionPerformed
+
+    private void ProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProdutosActionPerformed
+        // TODO add your handling code here:
+        Produto p = new Produto();
+        jPanel1.add(p);
+        p.setVisible(true);
+    }//GEN-LAST:event_ProdutosActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem Bairro;
     private javax.swing.JMenu Cadastro;
     private javax.swing.JMenuItem Cidades;
     private javax.swing.JMenuItem Clientes;
@@ -238,8 +242,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem Produtos;
     private javax.swing.JMenu Relatorios;
     private javax.swing.JMenu Sair;
-    private javax.swing.JMenuItem Telefone;
     private javax.swing.JMenu Vendas;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
