@@ -354,7 +354,6 @@ public class Estado extends javax.swing.JInternalFrame {
         ArrayList dados = new ArrayList();
 
         String[] Colunas = new String[]{"ID", "Nome", "Sigla"};
-
         conecta.executaSQL(SQL);
         try {
             conecta.rs.first();

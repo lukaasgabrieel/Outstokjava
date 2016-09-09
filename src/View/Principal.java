@@ -5,6 +5,10 @@
  */
 package View;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import outstok.conectaBanco;
 
 /**
@@ -19,9 +23,9 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public Principal() {
-        setExtendedState(Principal.MAXIMIZED_BOTH); 
+        setExtendedState(Principal.MAXIMIZED_BOTH);
         initComponents();
-
+        setIcon();
         conecta.conexao();
     }
 
@@ -42,7 +46,6 @@ public class Principal extends javax.swing.JFrame {
         Clientes = new javax.swing.JMenuItem();
         Fornecedor = new javax.swing.JMenuItem();
         Produtos = new javax.swing.JMenuItem();
-        Compras = new javax.swing.JMenu();
         Vendas = new javax.swing.JMenu();
         Relatorios = new javax.swing.JMenu();
         Sair = new javax.swing.JMenu();
@@ -76,6 +79,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenuBar1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        jMenuBar1.setVerifyInputWhenFocusTarget(false);
 
         Cadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/64/browser.png"))); // NOI18N
         Cadastro.setText("Cadastro");
@@ -138,14 +142,14 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(Cadastro);
 
-        Compras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/64/cart.png"))); // NOI18N
-        Compras.setText("Compras");
-        Compras.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jMenuBar1.add(Compras);
-
         Vendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/64/sales.png"))); // NOI18N
         Vendas.setText("Vendas");
         Vendas.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        Vendas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VendasMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(Vendas);
 
         Relatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/64/news.png"))); // NOI18N
@@ -164,6 +168,8 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(Sair);
 
         setJMenuBar(jMenuBar1);
+        jMenuBar1.getAccessibleContext().setAccessibleName("");
+        jMenuBar1.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -187,7 +193,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Cidade e = new Cidade();
         jPanel1.add(e);
-         e.setVisible(true);
+        e.setVisible(true);
     }//GEN-LAST:event_CidadesActionPerformed
 
     private void SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SairMouseClicked
@@ -228,15 +234,25 @@ public class Principal extends javax.swing.JFrame {
         p.setVisible(true);
     }//GEN-LAST:event_ProdutosActionPerformed
 
+    private void VendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendasMouseClicked
+        // TODO add your handling code here:
+        Venda v = new Venda();
+        jPanel1.add(v);
+        v.setVisible(true);
+
+    }//GEN-LAST:event_VendasMouseClicked
+
     /**
      * @param args the command line arguments
      */
+    public void setIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("store.png")));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Cadastro;
     private javax.swing.JMenuItem Cidades;
     private javax.swing.JMenuItem Clientes;
-    private javax.swing.JMenu Compras;
     private javax.swing.JMenuItem Estado;
     private javax.swing.JMenuItem Fornecedor;
     private javax.swing.JMenuItem Produtos;
